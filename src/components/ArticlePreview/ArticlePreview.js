@@ -5,16 +5,16 @@ import { inject, observer } from "mobx-react";
 const FAVORITED_CLASS = "btn btn-sm btn-primary";
 const NOT_FAVORITED_CLASS = "btn btn-sm btn-outline-primary";
 
-@inject("articlesStore")
+@inject("articlesUIStore")
 @observer
 export default class ArticlePreview extends Component {
   handleClickFavorite = ev => {
     ev.preventDefault();
-    const { articlesStore, article } = this.props;
+    const { articlesUIStore, article } = this.props;
     if (article.favorited) {
-      articlesStore.unmakeFavorite(article.slug);
+      articlesUIStore.unmakeFavorite(article.slug);
     } else {
-      articlesStore.makeFavorite(article.slug);
+      articlesUIStore.makeFavorite(article.slug);
     }
   };
 

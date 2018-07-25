@@ -5,10 +5,10 @@ const LIMIT = 10;
 
 export class articlesStore {
   @observable isLoading = false;
-  @observable page = 0;
-  @observable totalPagesCount = 0;
   @observable articlesRegistry = observable.map();
   @observable predicate = {};
+  @observable page = 0;
+  @observable totalPagesCount = 0;
 
   @computed
   get articles() {
@@ -52,26 +52,6 @@ export class articlesStore {
   }
 
   @action
-  loadArticles() {
-    this.isLoading = true;
-    return this.$req()
-      .then(
-        action(({ articles, articlesCount }) => {
-          this.articlesRegistry.clear();
-          articles.forEach(article =>
-            this.articlesRegistry.set(article.slug, article)
-          );
-          this.totalPagesCount = Math.ceil(articlesCount / LIMIT);
-        })
-      )
-      .finally(
-        action(() => {
-          this.isLoading = false;
-        })
-      );
-  }
-
-  @action
   loadArticle(slug, { acceptCached = false } = {}) {
     if (acceptCached) {
       const article = this.getArticle(slug);
@@ -93,37 +73,23 @@ export class articlesStore {
   }
 
   @action
-  makeFavorite(slug) {
-    const article = this.getArticle(slug);
-    if (article && !article.favorited) {
-      article.favorited = true;
-      article.favoritesCount++;
-      return agent.Articles.favorite(slug).catch(
-        action(err => {
-          article.favorited = false;
-          article.favoritesCount--;
-          throw err;
+  loadArticles() {
+    this.isLoading = true;
+    return this.$req()
+      .then(
+        action(({ articles, articlesCount }) => {
+          this.articlesRegistry.clear();
+          articles.forEach(article =>
+            this.articlesRegistry.set(article.slug, article)
+          );
+          this.totalPagesCount = Math.ceil(articlesCount / LIMIT);
+        })
+      )
+      .finally(
+        action(() => {
+          this.isLoading = false;
         })
       );
-    }
-    return Promise.resolve();
-  }
-
-  @action
-  unmakeFavorite(slug) {
-    const article = this.getArticle(slug);
-    if (article && article.favorited) {
-      article.favorited = false;
-      article.favoritesCount--;
-      return agent.Articles.unfavorite(slug).catch(
-        action(err => {
-          article.favorited = true;
-          article.favoritesCount++;
-          throw err;
-        })
-      );
-    }
-    return Promise.resolve();
   }
 
   @action

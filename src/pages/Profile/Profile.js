@@ -49,7 +49,7 @@ const FollowUserButton = props => {
   );
 };
 
-@inject("articlesStore", "profileStore", "userStore")
+@inject("articlesStore", "articlesUIStore", "profileStore", "userStore")
 @withRouter
 @observer
 export default class Profile extends React.Component {
@@ -60,6 +60,7 @@ export default class Profile extends React.Component {
   componentDidMount() {
     this.props.profileStore.loadProfile(this.props.match.params.username);
     this.props.articlesStore.loadArticles();
+    // this.props.articlesUIStore.loadArticles();
   }
 
   componentDidUpdate(previousProps) {
@@ -67,6 +68,7 @@ export default class Profile extends React.Component {
       this.props.profileStore.loadProfile(this.props.match.params.username);
       this.props.articlesStore.setPredicate(this.getPredicate());
       this.props.articlesStore.loadArticles();
+      // this.props.articlesUIStore.loadArticles();
     }
   }
 
