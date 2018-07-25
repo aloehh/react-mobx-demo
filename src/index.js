@@ -7,7 +7,10 @@ import { Provider } from "mobx-react";
 
 import App from "./app/app";
 
-import articlesStore from "./stores/articlesStore";
+// import articlesStores from "./stores/articlesStore";
+import articlesStore from "./stores/articlesStore/articlesDomainStore";
+import articlesUIStore from "./stores/articlesStore/articlesUIStore";
+
 import commentsStore from "./stores/commentsStore";
 import authStore from "./stores/authStore";
 import commonStore from "./stores/commonStore";
@@ -15,8 +18,11 @@ import editorStore from "./stores/editorStore";
 import userStore from "./stores/userStore";
 import profileStore from "./stores/profileStore";
 
+// let articlesStore = articlesStores.articlesStore;
+// let articlesUIStore = articlesStores.articlesUIStore;
 const stores = {
   articlesStore,
+  articlesUIStore,
   commentsStore,
   authStore,
   commonStore,

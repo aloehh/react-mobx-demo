@@ -1,9 +1,9 @@
 import { observable, action, computed } from "mobx";
-import agent from "../agent";
+import agent from "../../agent";
 
 const LIMIT = 10;
 
-export class ArticlesStore {
+export class articlesStore {
   @observable isLoading = false;
   @observable page = 0;
   @observable totalPagesCount = 0;
@@ -154,4 +154,4 @@ export class ArticlesStore {
   }
 }
 
-export default new ArticlesStore();
+export default new articlesStore();
