@@ -1,2 +1,2 @@
-import "./Register.scss";
+// import "./Register.scss";
 export { default } from "./Register";

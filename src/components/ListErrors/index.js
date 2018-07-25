@@ -1,2 +1,2 @@
-import "./ListErrors.scss";
+// import "./ListErrors.scss";
 export { default } from "./ListErrors";

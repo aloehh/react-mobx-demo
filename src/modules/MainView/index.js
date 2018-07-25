@@ -1,2 +1,2 @@
-import "./MainView.scss";
+// import "./MainView.scss";
 export { default } from "./MainView";

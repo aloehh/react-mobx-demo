@@ -1,2 +1,2 @@
-import "./CommentList.scss";
+// import "./CommentList.scss";
 export { default } from "./CommentList";

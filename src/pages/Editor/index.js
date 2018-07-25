@@ -1,2 +1,2 @@
-import "./Editor.scss";
+// import "./Editor.scss";
 export { default } from "./Editor";

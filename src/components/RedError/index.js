@@ -1,2 +1,2 @@
-import "./RedError.scss";
+// import "./RedError.scss";
 export { default } from "./RedError";

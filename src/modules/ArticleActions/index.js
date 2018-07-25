@@ -1,2 +1,2 @@
-import "./ArticleActions.scss";
+// import "./ArticleActions.scss";
 export { default } from "./ArticleActions";

@@ -1,2 +1,2 @@
-import "./Home.scss";
+// import "./Home.scss";
 export { default } from "./Home";

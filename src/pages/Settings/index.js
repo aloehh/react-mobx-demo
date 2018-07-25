@@ -1,2 +1,2 @@
-import "./Settings.scss";
+// import "./Settings.scss";
 export { default } from "./Settings";

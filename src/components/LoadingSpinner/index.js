@@ -1,2 +1,2 @@
-import "./LoadingSpinner.scss";
+// import "./LoadingSpinner.scss";
 export { default } from "./LoadingSpinner";

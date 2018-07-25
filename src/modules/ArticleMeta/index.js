@@ -1,2 +1,2 @@
-import "./ArticleMeta.scss";
+// import "./ArticleMeta.scss";
 export { default } from "./ArticleMeta";

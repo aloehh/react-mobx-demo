@@ -1,2 +1,2 @@
-import "./Profile.scss";
+// import "./Profile.scss";
 export { default } from "./Profile";
