@@ -8,7 +8,7 @@ import { Provider } from "mobx-react";
 import App from "./app/app";
 
 // import articlesStores from "./stores/articlesStore";
-import articlesStore from "./stores/articlesStore/articlesDomainStore";
+import articlesStore from "./stores/articlesStore/articlesDomainStore.ts";
 import articlesUIStore from "./stores/articlesStore/articlesUIStore";
 
 import commentsStore from "./stores/commentsStore";

@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import articlesStore from "./articlesStore/articlesDomainStore";
+import articlesStore from "./articlesStore/articlesDomainStore.ts";
 
 class EditorStore {
   @observable inProgress = false;

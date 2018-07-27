@@ -1,6 +1,6 @@
 import { observable, action, computed } from "mobx";
 import agent from "../../agent";
-import articlesDomainStore from "./articlesDomainStore";
+import articlesDomainStore from "./articlesDomainStore.ts";
 
 const LIMIT = 10;
 

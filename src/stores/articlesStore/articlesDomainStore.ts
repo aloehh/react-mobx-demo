@@ -1,14 +1,14 @@
 import { observable, action, computed } from "mobx";
-import agent from "../../agent";
+import agent from "../../agent.js";
 
-const LIMIT = 10;
+const LIMIT: number = 10;
 
 export class articlesStore {
-  @observable isLoading = false;
-  @observable articlesRegistry = observable.map();
-  @observable predicate = {};
-  @observable page = 0;
-  @observable totalPagesCount = 0;
+  @observable isLoading: boolean = false;
+  @observable articlesRegistry: any = observable.map();
+  @observable predicate: any = {};
+  @observable page: number = 0;
+  @observable totalPagesCount: number = 0;
 
   @computed
   get articles() {
@@ -20,12 +20,12 @@ export class articlesStore {
     this.page = 0;
   }
 
-  getArticle = slug => {
+  getArticle = (slug: string) => {
     return this.articlesRegistry.get(slug);
   };
 
   @action
-  setPage(page) {
+  setPage(page: number) {
     this.page = page;
   }
 
@@ -34,6 +34,7 @@ export class articlesStore {
     if (JSON.stringify(predicate) === JSON.stringify(this.predicate)) return;
     this.clear();
     this.predicate = predicate;
+    console.log(predicate, "predicate");
   }
 
   $req() {
@@ -109,7 +110,7 @@ export class articlesStore {
   }
 
   @action
-  deleteArticle(slug) {
+  deleteArticle(slug: string) {
     this.articlesRegistry.delete(slug);
     return agent.Articles.del(slug).catch(
       action(err => {

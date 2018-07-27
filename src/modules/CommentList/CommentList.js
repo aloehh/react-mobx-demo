@@ -1,4 +1,4 @@
-import Comment from "../../modules/Comment";
+import Comment from "../Comment";
 import React from "react";
 import { observer } from "mobx-react";
 
